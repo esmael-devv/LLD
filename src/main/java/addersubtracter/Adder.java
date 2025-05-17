@@ -13,11 +13,13 @@ public class Adder  implements Runnable{
     public void run() {
 
         for(int i=1;i<=10000;i++){
-            lock.lock();
-            int value = count.getValue();
-            value = value + i;
-            count.setValue(value);
-            lock.unlock();
+            synchronized(count) {
+                //lock.lock();
+                int value = count.getValue();
+                value = value + i;
+                count.setValue(value);
+                //lock.unlock();
+            }
         }
     }
 }
