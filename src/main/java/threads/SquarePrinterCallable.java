@@ -10,7 +10,7 @@ public class SquarePrinterCallable implements Callable<Integer> {
 
     @Override
     public Integer call() throws Exception {
-        Thread.sleep(10000);
+        Thread.sleep(10000); //sleep for 10 seconds
         return number*number;
     }
 }
