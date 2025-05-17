@@ -13,6 +13,8 @@ public class Sorter implements Callable<List<Integer>> {
     private ExecutorService executorService;
     @Override
     public List<Integer> call() throws Exception {
+
+        System.out.println("Got " + values.size() + " on" + Thread.currentThread().getName());
         //base case
         if(values.size() <= 1){
             return values;
@@ -24,6 +26,8 @@ public class Sorter implements Callable<List<Integer>> {
 
         Sorter leftSorter = new Sorter(leftArray, executorService);
         Sorter rightSorter = new Sorter(rightArray, executorService);
+
+        System.out.println("Dividing  " + values + " on Thread " + Thread.currentThread().getName());
 
         Future<List<Integer>> leftFuture = executorService.submit(leftSorter);
         Future<List<Integer>> rightFuture = executorService.submit(rightSorter);
