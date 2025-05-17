@@ -3,6 +3,7 @@ package threads;
 import java.util.List;
 
 public class SquarePrinterRunner {
+    //this class creates multiple threads
     public static void main(String[] args) {
         //create list
         List<Integer> values = List.of(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
